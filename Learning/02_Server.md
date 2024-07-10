@@ -1,3 +1,10 @@
+# Creating GraphQL Server
+
+Use apollo server to create a backend server for graphQL. [Read more about apollo server here.](https://www.apollographql.com/docs/apollo-server/)
+
+Follow the getting started documentation to setup the server. [Getting Started](https://www.apollographql.com/docs/apollo-server/getting-started).
+
+```
 import { ApolloServer } from "@apollo/server";
 import {startStandaloneServer} from "@apollo/server/standalone";
 
@@ -11,3 +18,4 @@ const { url } = await startStandaloneServer(server, {
 });
 
 console.log(`Server is listening to port: `, 4000);
+```
