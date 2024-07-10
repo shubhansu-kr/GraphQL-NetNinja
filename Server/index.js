@@ -1,15 +1,18 @@
 import { ApolloServer } from "@apollo/server";
 import {startStandaloneServer} from "@apollo/server/standalone";
 
-import { typedef } from "./Schema/Schema";
+import _db from "./Database/_db.js";
 
-// Server Setup : ApolloServer taks an object as an argument and that object has two properties: typedef (description of our data types and their relation with other datatypes) and resolver (function which resolve how we respond to different queries).
+import { typedef } from "./Schema/Schema.js";
+import { resolvers } from "./Resolvers/Resolvers.js";
+
 const server = new ApolloServer({
-    typedef
+    typeDefs: typedef,
+    resolvers
 })
 
 const { url } = await startStandaloneServer(server, {
     listen: {port: 5500}
 });
 
-console.log(`Server is listening to port: `, 4000);
+console.log(`Server is listening to port: `, 5500);
