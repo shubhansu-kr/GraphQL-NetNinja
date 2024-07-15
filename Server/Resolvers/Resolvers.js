@@ -38,5 +38,11 @@ export const resolvers = {
         author(parent) {
             return _db.authors.find((a) => a.id === parent.author_id);
         }
+    },
+    Mutation: {
+        deleteGame(_, args) {
+            _db.games = db.games.filter((g) => g.id != args.id)
+            return _db.games;
+        }
     }
 };
